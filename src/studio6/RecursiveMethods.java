@@ -28,10 +28,10 @@ public class RecursiveMethods {
 	 * @return greatest common divisor of p and q
 	 */
 	public static int gcd(int p, int q) {
-		
-			// FIXME compute the gcd of p and q using recursion
-			return 0;
-		
+		if (p % q == 0) {
+			return q;
+		}
+		return gcd(q, p % q);
 	}
 
 	
@@ -51,13 +51,9 @@ public class RecursiveMethods {
 		return mirrorArray;
 	}
 	public static int[] toReversed(int[] array) {
-		if (array.length < 1) {
-			return array;
-		}
 		int[] mirrorArray = new int[array.length];
 		helper(array, mirrorArray, array.length - 1);
 		return mirrorArray;
-		
 	}
 
 	/**
@@ -74,11 +70,11 @@ public class RecursiveMethods {
 		if (radius < radiusMinimumDrawingThreshold) {
 			return;
 		}	
+		StdDraw.circle(xCenter, yCenter, radius);
 		circlesUponCircles(xCenter, yCenter + radius, radius/3.0, radiusMinimumDrawingThreshold);
 		circlesUponCircles(xCenter, yCenter - radius, radius/3.0, radiusMinimumDrawingThreshold);
 		circlesUponCircles(xCenter + radius, yCenter, radius/3.0, radiusMinimumDrawingThreshold);
 		circlesUponCircles(xCenter - radius, yCenter, radius/3.0, radiusMinimumDrawingThreshold);
-		// FIXME
 	}
 
 }
